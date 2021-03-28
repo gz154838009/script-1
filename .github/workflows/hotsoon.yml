@@ -1,16 +1,16 @@
 # This workflow will do a clean install of node dependencies, build the source code and run tests across different versions of node
 # For more information see: https://help.github.com/actions/language-and-framework-guides/using-nodejs-with-github-actions
 
-name: 火山小视频极速版
+name: 今日头条极速版
 
 on:
   workflow_dispatch:
   schedule:
-    - cron: '*/5 * * * *'
+    - cron: '5,35 0-15 * * *'
   watch:
     types: started
   repository_dispatch:
-    types: hotsoon
+    types: jrtt
 jobs:
   build:
 
@@ -20,7 +20,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
         with:
-          repository: gz154838009/script-1
+          repository: ZhiYi-N/script
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v1
         with:
@@ -35,9 +35,9 @@ jobs:
       - name: npm install
         run: |
           npm install
-      - name: '运行 【火山小视频极速版】'
+      - name: '运行 【今日头条极速版】'
         run: |
-          node hotsoon.js
+          node hotsoon_old.js
         env:
           HOTSOONSIGNHEADER: ${{ secrets. HOTSOONSIGNHEADER }}
           HOTSOONSIGNKEY: ${{ secrets. HOTSOONSIGNKEY }}
