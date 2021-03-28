@@ -1,5 +1,5 @@
 
-name: 火山极速版
+name: 火山极速版1
 
 on:
   workflow_dispatch:
